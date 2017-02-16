@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="list">
+    <ul>
+        <li class="ng-scope" ng-repeat="value in movie.subjects">
+            <a href="#/details/{{value.id}}">
+                <img ng-src="{{value.images.large}}" alt="">
+            </a>
+            <div class="meta">
+                <h4><span class="ng-binding" ng-bind="value.title"></span> <em class="ng-binding" ng-bind='value.rating.average'></em></h4>
+                <div class="otherinfo">类型:<!-- ngRepeat: gen in item.genres -->
+                    <span ng-repeat="juqing in value.genres" class="ng-binding ng-scope" ng-bind='juqing'></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="paging">
+        <label class="ng-binding">总共：{{total}}条记录,第{{pageid}}/{{Maxpage}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <a class="prev" ng-class="{'disable':pageid==1}" href="#/later/1">首页</a>
+        <a class="prev" ng-class="{'disable':pageid==1}" href="#/later/{{prepage}}">上一页</a>
+        <a class="next" ng-class="{'disable':pageid==Maxpage}" href="#/later/{{nexpage}}">下一页</a>
+        <a class="next" ng-class="{'disable':pageid==Maxpage}" href="#/later/{{Maxpage}}">尾页</a>
+    </div>
+</div>
+<div class="mask" ng-hide="isloading">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
